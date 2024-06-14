@@ -1,0 +1,26 @@
+{
+  "name": "login_system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "firebase-admin": "^12.1.1",
+    "nodemon": "^3.1.2",
+    "password-hash": "^1.2.2",
+    "request": "^2.88.2",
+    "uuid": "^9.0.1"
+  }
+}

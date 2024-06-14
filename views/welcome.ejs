@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .username {
+            display: block;
+            margin-top: 50px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .animal-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .animal-form label {
+            font-size: 18px;
+        }
+        .animal-form input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .animal-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .animal-details, .error {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="username">
+        <h1>Welcome to the Dashboard, <%= username %>!</h1>
+        <h2>You have successfully logged in.</h2>
+    </div>
+
+    <div class="animal-form">
+        <form action="/getAnimal" method="POST">
+            <label for="animal">Enter Animal Name:</label>
+            <input type="text" id="animal" name="animal" required>
+            <button type="submit">Get Details</button>
+        </form>
+    </div>
+
+    <% if (error) { %>
+        <div class="error"><%= error %></div>
+    <% } %>
+    
+    <% if (animal) { %>
+        <div class="animal-details">
+            <h2>Animal Details:</h2>
+            <p><strong>Name:</strong> <%= animal.name %></p>
+            <p><strong>Scientific Name:</strong> <%= animal.taxonomy ? animal.taxonomy.scientific_name : 'N/A' %></p>
+            <p><strong>Kingdom:</strong> <%= animal.taxonomy ? animal.taxonomy.kingdom : 'N/A' %></p>
+            <p><strong>Phylum:</strong> <%= animal.taxonomy ? animal.taxonomy.phylum : 'N/A' %></p>
+            <p><strong>Class:</strong> <%= animal.taxonomy ? animal.taxonomy.class : 'N/A' %></p>
+            <p><strong>Order:</strong> <%= animal.taxonomy ? animal.taxonomy.order : 'N/A' %></p>
+            <p><strong>Family:</strong> <%= animal.taxonomy ? animal.taxonomy.family : 'N/A' %></p>
+            <p><strong>Genus:</strong> <%= animal.taxonomy ? animal.taxonomy.genus : 'N/A' %></p>
+            <p><strong>Common Name:</strong> <%= animal.characteristics ? animal.characteristics.common_name : 'N/A' %></p>
+            <p><strong>Lifespan:</strong> <%= animal.characteristics ? animal.characteristics.lifespan : 'N/A' %></p>
+            <p><strong>Top Speed:</strong> <%= animal.characteristics ? animal.characteristics.top_speed : 'N/A' %></p>
+            <p><strong>Habitat:</strong> <%= animal.characteristics ? animal.characteristics.habitat : 'N/A' %></p>
+            <p><strong>Diet:</strong> <%= animal.characteristics ? animal.characteristics.diet : 'N/A' %></p>
+            <p><strong>Estimated Population Size:</strong> <%= animal.characteristics ? animal.characteristics.estimated_population_size : 'N/A' %></p>
+            <p><strong>Biggest Threat:</strong> <%= animal.characteristics ? animal.characteristics.biggest_threat : 'N/A' %></p>
+        </div>
+    <% } %>
+</body>
+</html>
